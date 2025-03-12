@@ -1,15 +1,17 @@
 function addTask() {
     let taskDetails = prompt('Enter Task Below');
 
-    while (!taskDetails) {
-        taskDetails = prompt('Task cant be empty');
+    if (taskDetails) {
+        const newTask = document.createElement('li');
+        const tasks = document.getElementById('tasks');
+
+        newTask.classList.add('task');
+        newTask.textContent = taskDetails;
+        tasks.appendChild(newTask);
     }
-
-    const newTask = document.createElement('li');
-    const tasks = document.getElementById('tasks');
-
-    newTask.textContent = taskDetails;
-    tasks.appendChild(newTask);
+    else {
+        alert('Task cant be empty');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

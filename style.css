@@ -28,3 +28,23 @@ body {
     overflow-wrap: break-word;
     width: 50%;
 }
+
+.task {
+    padding-bottom: 10px;
+}
+
+#new-task {
+    width: 50%;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    background-color: transparent;
+    border: none;
+}
+
+#new-task:hover {
+    cursor: pointer;
+    background-color: rgba(30, 30, 30, 0.1);
+    border: 1px solid rgba(30, 30, 30, 0.3);
+    transition: background-color 0.2s ease-out, border 0.3s ease-out;
+}
