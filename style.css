@@ -39,7 +39,7 @@ body {
     font-size: 1.5rem;
     font-weight: 900;
     background-color: transparent;
-    border: none;
+    border: transparent;
 }
 
 #new-task:hover {
