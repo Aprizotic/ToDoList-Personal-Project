@@ -1,8 +1,13 @@
 function addTask() {
-    const taskDetails = prompt('Enter Task Below');
+    let taskDetails = prompt('Enter Task Below');
+
+    while (!taskDetails) {
+        taskDetails = prompt('Task cant be empty');
+    }
+
     const newTask = document.createElement('li');
     const tasks = document.getElementById('tasks');
-    
+
     newTask.textContent = taskDetails;
     tasks.appendChild(newTask);
 }
