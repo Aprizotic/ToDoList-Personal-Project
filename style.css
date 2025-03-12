@@ -23,3 +23,8 @@ body {
     font-weight: 700;
     font-size: 2rem;
 }
+
+#tasks {
+    overflow-wrap: break-word;
+    width: 50%;
+}
