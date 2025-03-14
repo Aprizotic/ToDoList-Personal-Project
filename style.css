@@ -25,15 +25,25 @@ body {
 }
 
 #tasks {
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     width: 50%;
 }
 
 .task {
+    display: flex;
     padding-bottom: 10px;
+    column-gap: 10px;
 }
 
-#new-task {
+.remove-task {
+    flex-basis: 10%;
+}
+
+.content {
+    flex-basis: 90%;
+}
+
+#new-task, .remove-task {
     width: 50%;
     border-radius: 5px;
     font-size: 1.5rem;
@@ -42,7 +52,7 @@ body {
     border: transparent;
 }
 
-#new-task:hover {
+#new-task:hover, .remove-task:hover {
     cursor: pointer;
     background-color: rgba(30, 30, 30, 0.1);
     border: 1px solid rgba(30, 30, 30, 0.3);
