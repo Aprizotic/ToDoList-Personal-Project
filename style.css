@@ -19,9 +19,15 @@ body {
     background-color: white;
 }
 
+#title {
+    width: 50%;
+}
+
 #toggle-dark-mode {
+    position: absolute;
+    left: 0;
     margin-left: 5px;
-    flex-basis: 10%;
+    width: 10%;
     height: 80%;
     font-weight: 700;
     font-size: 0.7rem;
@@ -77,6 +83,7 @@ nav {
     top: 0;
     z-index: 1;
     display: flex;
+    justify-content: center;
     background-color: white;
     height: 5vh;
     width: 100vw;

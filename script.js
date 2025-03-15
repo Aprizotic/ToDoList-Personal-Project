@@ -73,4 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     addTaskButton.addEventListener('click', addTask);
+    window.addEventListener('keydown', e => {
+        if (e.key === 'n') addTask();
+    })
 });
