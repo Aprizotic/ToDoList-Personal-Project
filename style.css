@@ -2,17 +2,87 @@
 
 *, *::before, *::after {
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
   
 * {
     margin: 0;
     padding: 0;
+    transition: color 0.3s linear;
 }
   
 body {
-    font-family: "Montserrat", sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: white;
+}
+
+#toggle-dark-mode {
+    margin-left: 5px;
+    flex-basis: 10%;
+    height: 80%;
+    font-weight: 700;
+    font-size: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 2px 1px black;
+}
+
+#toggle-dark-mode.dark-mode {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 2px 1px white;
+}
+
+#toggle-dark-mode.dark-mode:hover {
+    border: 1px solid red;
+}
+
+#toggle-dark-mode:hover {
+    cursor: pointer;
+    opacity: 0.85;
+    border: 1px solid green;
+    transition: background-color 0.2s ease-out, border 0.3s ease-out;
+}
+
+body, nav {
+    transition: background-color 0.3s linear;
+    transition: box-shadow 0.3s linear;
+}
+
+*.dark-mode {
+    color: white;
+}
+
+body.dark-mode {
+    background-color: black;
+}
+
+nav.dark-mode {
+    background-color: black;
+    box-shadow: 0 1px 6px 3px white;
+}
+
+#new-task.dark-mode:hover, .remove-task.dark-mode:hover {
+    background-color: rgba(196, 196, 196, 0.1);
+    border: 1px solid rgba(196, 196, 196, 0.3);
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    background-color: white;
+    height: 5vh;
+    width: 100vw;
+    margin-bottom: 30px;
+    align-items: center;
+    box-shadow: 0 1px 6px 3px black;
 }
 
 #list {
@@ -41,6 +111,10 @@ body {
 
 .content {
     flex-basis: 90%;
+}
+
+#new-task {
+    margin-bottom: 100px;
 }
 
 #new-task, .remove-task {

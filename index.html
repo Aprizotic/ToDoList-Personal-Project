@@ -8,17 +8,20 @@
         <script src="script.js"></script>
     </head>
 
-    <body>
+    <body class="toggleable dark-mode">
+        <nav class="toggleable dark-mode">
+            <button id="toggle-dark-mode" class="toggleable dark-mode">Blind me</button>
+        </nav>
         <main id="list">
             <ul id="tasks">
                 <li class="list">
                     <div class="task">
                         <p class="content">Create a To Do List Website</p>
-                        <button id="joke" class="remove-task">-</button>
+                        <button id="joke" class="remove-task toggleable dark-mode">-</button>
                     </div>
                 </li>
             </ul>
-            <button id="new-task">+</button>
+            <button id="new-task" class="toggleable dark-mode">+</button>
         </main>
     </body>
 </html>
