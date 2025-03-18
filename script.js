@@ -1,3 +1,5 @@
+let lastTaskAdded = []; 
+
 function isDarkMode() {
     const body = document.querySelector('body');
     const styles = window.getComputedStyle(body);
@@ -10,7 +12,6 @@ function isDarkMode() {
 }
 
 function addTask(isSubTask, nodeToAddTo) {
-    console.log(nodeToAddTo);
     let taskContent = prompt('Enter Task Below');
 
     if (taskContent) {
@@ -64,9 +65,11 @@ function addTask(isSubTask, nodeToAddTo) {
             newUl.classList.add('sub-tasks');
             newUl.appendChild(newList);
             nodeToAddTo.appendChild(newUl);
+            lastTaskAdded.unshift(newUl);
         } 
         else {
             tasks.appendChild(newList);
+            lastTaskAdded.unshift(newList);
         }
     } 
     else {
@@ -109,5 +112,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('keydown', e => {
         if (e.key === 'n') addTask();
+        if (e.key === 'z' && e.ctrlKey) {
+            if (lastTaskAdded[0]) {
+                lastTaskAdded[0].remove();
+                lastTaskAdded.splice(0, 1);
+            }
+        }
     })
 });
