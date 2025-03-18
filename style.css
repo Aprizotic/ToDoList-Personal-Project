@@ -74,7 +74,7 @@ nav.dark-mode {
     box-shadow: 0 1px 6px 3px white;
 }
 
-#new-task.dark-mode:hover, .remove-task.dark-mode:hover {
+#new-task.dark-mode:hover, .remove-task.dark-mode:hover, .new-sub-task.dark-mode:hover {
     background-color: rgba(196, 196, 196, 0.1);
     border: 1px solid rgba(196, 196, 196, 0.3);
 }
@@ -113,6 +113,12 @@ nav {
     column-gap: 10px;
 }
 
+.sub-tasks {
+    width: 90%;
+    font-size: 1.5rem;
+    margin-left: 10%;
+}
+
 .remove-task {
     flex-basis: 10%;
 }
@@ -125,7 +131,11 @@ nav {
     margin-bottom: 100px;
 }
 
-#new-task, .remove-task {
+.new-sub-task {
+    flex-basis: 10%;
+}
+
+#new-task, .remove-task, .new-sub-task {
     width: 50%;
     border-radius: 5px;
     font-size: 1.5rem;
@@ -134,7 +144,7 @@ nav {
     border: transparent;
 }
 
-#new-task:hover, .remove-task:hover {
+#new-task:hover, .remove-task:hover, .new-sub-task:hover {
     cursor: pointer;
     background-color: rgba(30, 30, 30, 0.1);
     border: 1px solid rgba(30, 30, 30, 0.3);

@@ -10,19 +10,22 @@
 
     <body class="toggleable dark-mode">
         <nav class="toggleable dark-mode">
-            <button id="toggle-dark-mode" class="toggleable dark-mode">Blind me</button>
+            <button title="Toggle Dark Mode" id="toggle-dark-mode" class="toggleable dark-mode">Blind me</button>
             <h1 id="title">Press N to add a task</h1>
         </nav>
         <main id="list">
             <ul id="tasks">
                 <li class="list">
                     <div class="task">
-                        <p class="content">Create a To Do List Website</p>
-                        <button id="joke" class="remove-task toggleable dark-mode">-</button>
+                        <p class="content">
+                            Create a To Do List Website
+                        </p>
+                        <button title="Add Sub Task" class="toggleable dark-mode new-sub-task">+</button>
+                        <button title="Remove Task" id="joke" class="remove-task toggleable dark-mode">-</button>
                     </div>
                 </li>
             </ul>
-            <button id="new-task" class="toggleable dark-mode">+</button>
+            <button title="Add Task" id="new-task" class="toggleable dark-mode">+</button>
         </main>
     </body>
 </html>

@@ -9,7 +9,8 @@ function isDarkMode() {
     return false;
 }
 
-function addTask() {
+function addTask(isSubTask, nodeToAddTo) {
+    console.log(nodeToAddTo);
     let taskContent = prompt('Enter Task Below');
 
     if (taskContent) {
@@ -18,11 +19,24 @@ function addTask() {
         const newContent = document.createElement('p');
         const newRemoveButton = document.createElement('button');
         const tasks = document.getElementById('tasks');
+        const newAddSubTaskButton = document.createElement('button');
 
         newRemoveButton.classList.add('remove-task');
 
         if (isDarkMode()) {
             newRemoveButton.classList.add('dark-mode');
+        }
+
+        if (!isSubTask) {
+            if (isDarkMode()) newAddSubTaskButton.classList.add('dark-mode');
+
+            newAddSubTaskButton.classList.add('toggleable');
+            newAddSubTaskButton.classList.add('new-sub-task');
+            newAddSubTaskButton.textContent = '+';
+
+            newAddSubTaskButton.addEventListener('click', function(e) {
+                addTask(true, e.target.parentNode.childNodes[0]);
+            });
         }
 
         newRemoveButton.classList.add('toggleable');
@@ -32,16 +46,28 @@ function addTask() {
         newContent.textContent = taskContent;
 
         newDiv.classList.add('task');
+
         newDiv.appendChild(newContent);
+
+        if (!isSubTask) newDiv.appendChild(newAddSubTaskButton);
+
         newDiv.appendChild(newRemoveButton);
 
         newList.appendChild(newDiv);
 
-        tasks.appendChild(newList);
-
         newRemoveButton.addEventListener('click', function() {
             newList.remove();
         });
+
+        if (isSubTask) {
+            let newUl = document.createElement('ul');
+            newUl.classList.add('sub-tasks');
+            newUl.appendChild(newList);
+            nodeToAddTo.appendChild(newUl);
+        } 
+        else {
+            tasks.appendChild(newList);
+        }
     } 
     else {
         alert('Task cant be empty');
@@ -50,6 +76,7 @@ function addTask() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const addTaskButton = document.getElementById('new-task');
+    const addSubTaskButton = document.getElementsByClassName('new-sub-task')[0];
     const joke = document.getElementById('joke');
     const toggleTheme = document.getElementById('toggle-dark-mode');
 
@@ -71,8 +98,15 @@ document.addEventListener('DOMContentLoaded', function() {
     joke.addEventListener('click', function() {
         alert('You have not completed this task yet');
     })
+    
+    addTaskButton.addEventListener('click', function() {
+        addTask(false);
+    });
 
-    addTaskButton.addEventListener('click', addTask);
+    addSubTaskButton.addEventListener('click', function(e) {
+        addTask(true, e.target.parentNode.childNodes[1]);
+    });
+
     window.addEventListener('keydown', e => {
         if (e.key === 'n') addTask();
     })
