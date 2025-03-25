@@ -102,6 +102,11 @@ nav {
     font-size: 2rem;
 }
 
+.form {
+    display: flex;
+    column-gap: 10px;
+}
+
 #tasks {
     overflow-wrap: anywhere;
     width: 50%;
@@ -149,4 +154,57 @@ nav {
     background-color: rgba(30, 30, 30, 0.1);
     border: 1px solid rgba(30, 30, 30, 0.3);
     transition: background-color 0.2s ease-out, border 0.3s ease-out;
+}
+
+.new-task-form {
+    overflow-wrap: anywhere;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    background-color: white;
+    color: black;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 1px inset rgba(30, 30, 30, 0.3);
+    border-radius: 5px;
+    flex-basis: 85%;
+    width: 85%;
+    height: 2rem;
+}
+
+.new-task-form.dark-mode {
+    border: 1px solid rgba(196, 196, 196, 0.3);
+    background-color: black;
+    color: white;
+}
+
+.new-task-form:focus {
+    outline: 2px solid rgba(196, 196, 196, 0.3);
+}
+
+.submit-task-form {
+    flex-basis: 15%;
+    height: 2rem;
+    font-weight: 700;
+    background-color: rgba(196, 196, 196, 0.1);
+    border: 1px solid rgba(30, 30, 30, 0.6);
+    border-radius: 5px;
+    color: black;
+}
+
+.submit-task-form.dark-mode {
+    color: white;
+    border: 1px solid rgba(196, 196, 196, 0.3);
+}
+
+.submit-task-form.dark-mode:hover {
+    border: 1px solid white;
+}
+
+.submit-task-form:hover {
+    cursor: pointer;
+    flex-basis: 15%;
+    height: 2rem;
+    background-color: green;
+    transition: background-color 0.2s ease-out, border 0.3s ease-out;
+    border: 1px solid black;
 }
