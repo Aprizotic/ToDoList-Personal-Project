@@ -61,11 +61,6 @@ function addTask(isSubTask, nodeToAddTo) {
         const newTaskForm = document.getElementsByClassName('new-task-form')[0];
         newTaskForm.focus();
 
-        newTaskForm.addEventListener('focusout', function() {
-            formContainer.remove();
-            taskFormPresent = false;
-        });
-
         newTaskForm.addEventListener('keydown', function (e) {
             if (e.key === "Enter") {
                 const userInput = newTaskForm.value;
@@ -208,6 +203,13 @@ function addTask(isSubTask, nodeToAddTo) {
                 taskFormPresent = false;
             }
         });
+
+        newTaskForm.addEventListener('focusout', function() {
+            setTimeout(function() {
+            formContainer.remove();
+            taskFormPresent = false;
+            }, '100');
+        });
     }
 }
 
@@ -217,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const joke = document.getElementById('joke');
     const toggleTheme = document.getElementById('toggle-dark-mode');
 
-    toggleTheme.addEventListener('click', function () {
+    toggleTheme.addEventListener('click', function() {
         const theme = document.getElementsByClassName('toggleable');
 
         for (let i = 0; i < theme.length; i++) {
