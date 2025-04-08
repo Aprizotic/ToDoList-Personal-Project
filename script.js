@@ -3,9 +3,8 @@ let taskFormPresent = false;
 
 function isDarkMode() {
     const body = document.querySelector('body');
-    const styles = window.getComputedStyle(body);
 
-    if (styles.getPropertyValue('background-color') === 'rgb(0, 0, 0)') {
+    if (body.classList.contains('dark-mode')) {
         return true;
     }
 
@@ -206,8 +205,8 @@ function addTask(isSubTask, nodeToAddTo) {
 
         newTaskForm.addEventListener('focusout', function() {
             setTimeout(function() {
-            formContainer.remove();
-            taskFormPresent = false;
+                formContainer.remove();
+                taskFormPresent = false;
             }, '100');
         });
     }

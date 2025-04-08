@@ -12,11 +12,15 @@
     padding: 0;
     transition: color 0.3s linear;
 }
-  
+
+html {
+    min-height: 100%;
+}
+
 body {
     max-width: 100%;
     overflow-x: hidden;
-    background-color: white;
+    background: linear-gradient(white, darkgray);
 }
 
 #title {
@@ -66,7 +70,7 @@ body, nav {
 }
 
 body.dark-mode {
-    background-color: black;
+    background: linear-gradient(black, rgb(36, 36, 36));
 }
 
 nav.dark-mode {
